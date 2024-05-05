@@ -1,0 +1,97 @@
+.movie-carousel-container{
+    width: 100vw;
+    background-color: black;
+}
+
+/* {**6} */
+.movie-poster{
+    height: 300px;
+    border: 1px solid gold;
+    border-radius: 10px;
+    overflow: hidden;   
+    /* Radius leaks the mage and overflow hides it */
+}
+.movie-poster > img {
+    height: 100%;
+    width: 100%;
+}
+
+.movie-card-container{
+    height: 550px;
+    background-color: black;
+}
+/* {**1} */
+/* We dont want the poster image to take up the carousel display. We want a larger backdrop image to fill in each element of the carousel*/
+
+/* {**2} */
+/*  Including a gradient that fades from dark to light from the bottom of eaech carousel item where the title is displayed.
+In order to dynamically reference the background img url for each carousel card, use a custom css variable in the <div> of the carousel card, this is done by adding css style in-line element in it.
+{check **3)}
+*/
+.movie-card{
+    background-repeat: no-repeat;
+    width:100%;
+    height: 100%;
+    background-size: cover;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)), var(--img);
+}
+/* {**4}
+Now the card will have reference to the backdrops of the current element of the movies array.
+As the movie-card can use the backdrops of array, we set the same via positioing the background. And setting the background image with a linear gradient to fade.
+{Make sure to place the linear-gradient(items) in one parameter and variable referencing the backdrops in another}
+As the poster image looks distorted we style the poster and the title accordingly
+*/
+
+.movie-detail{
+    position: absolute;
+    top: 200px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+/* {**5}
+We use the absolute positioning and the css flexbox to style the poster and handle where it appears */
+
+.movie-title{
+    color:white;
+    display:flex;
+    align-items: center;
+}
+/* {**6}
+More changes are made accordingly to the movie-poster */
+
+/* {**7} */
+.play-button-icon-container{
+    padding:0px;
+    margin: 0px;
+    width: 150px;
+}
+
+.movie-buttons-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+}
+
+.play-button-icon{
+    padding: 0px;
+    margin: 0px;
+    color: gold;
+    font-size: 3rem;
+    transition: 0.4s;
+    cursor: pointer;
+}
+.play-button-icon:hover{
+    font-size: 4rem;
+    color: silver;
+}
+
+/* {**8} */
+@media only screen and (max-width: 800px) {
+    .movie-detail{
+        flex-direction: column;
+        align-items: center;
+        top: 20px;
+    }
+}
