@@ -1,4 +1,4 @@
-Run backend to see site live at : https://v1709r.github.io/GoldenReview_react/
+Backend: https://github.com/v1709r/GoldenReviews_spring
 
 # Getting Started with Create React App
 
